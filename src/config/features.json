@@ -1,0 +1,12 @@
+{
+    "features": [
+        {
+            "id": 1,
+            "name": "Bandeja CNC"
+        },
+        {
+            "id": 2,
+            "name": "Cabeçote CNC"
+        }
+    ]
+}
