@@ -4,10 +4,10 @@ const { categorize, finalize, next, picture, prev } = require('../controllers');
 
 const router = express.Router();
 
-router.post('/picture', picture.performAction);
-router.post('/categorize', categorize.performAction);
-router.post('/finalize', finalize.performAction);
-router.post('/prev', prev.performAction);
-router.post('/next', next.performAction);
+router.get('/picture', picture);
+router.post('/categorize', categorize);
+router.post('/finalize', finalize);
+router.post('/prev', prev);
+router.post('/next', next);
 
 module.exports = router;
