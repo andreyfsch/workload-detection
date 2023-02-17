@@ -1,17 +1,18 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+import express from 'express';
+import pkg from 'body-parser';
+const { json, urlencoded } = pkg;
 const app = express();
-const routes = require('./routes');
+import routes from './src/routes/index.js';
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(json());
+app.use(urlencoded({ extended: true }));
 
-app.get('src/', (req, res) => res.send('App is working'));
+app.get('./src/', (req, res) => res.send('App is working'));
 
-app.use('src/routes', routes);
+app.use('./src/routes', routes);
 
 app.listen(3000, () => console.log('Feature selection API running on port 3000!'));
 
-module.exports = {
-    app
+export default {
+  app
 };

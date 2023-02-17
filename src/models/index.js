@@ -1,1 +1,1 @@
-exports.featureSelection = require('./featureSelection.model');
+export const featureSelection = require('./feature-selection_model');

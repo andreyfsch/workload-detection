@@ -1,8 +1,12 @@
-const express = require('express');
+import { Router } from 'express';
 
-const { categorize, finalize, next, picture, prev } = require('../controllers');
+const controllers = import('../controllers/index.js').default;
 
-const router = express.Router();
+// const { picture, categorize, finalize, prev, next } = controllers;
+
+console.log(controllers);
+
+const router = Router();
 
 router.get('/picture', picture);
 router.post('/categorize', categorize);
@@ -10,4 +14,4 @@ router.post('/finalize', finalize);
 router.post('/prev', prev);
 router.post('/next', next);
 
-module.exports = router;
+export default router;
