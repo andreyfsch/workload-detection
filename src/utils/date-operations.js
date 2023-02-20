@@ -13,7 +13,7 @@ const dateFormat = (date) => {
   return fixed_date;
 };
 
-export const findNextDate = (dates, target) => {
+const findNextDate = (dates, target) => {
   let nextDate = Infinity;
   const dateTarget = new Date(dateFormat(target));
 
@@ -34,7 +34,7 @@ export const findNextDate = (dates, target) => {
   return nextDate;
 };
 
-export const findPrevDate = (dates, target) => {
+const findPrevDate = (dates, target) => {
   let prevDate = Infinity;
   const dateTarget = new Date(dateFormat(target));
 
@@ -54,3 +54,10 @@ export const findPrevDate = (dates, target) => {
 
   return prevDate;
 };
+
+const dateOperations = {
+  findNextDate: findNextDate,
+  findPrevDate: findPrevDate
+};
+
+export default dateOperations;

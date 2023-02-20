@@ -1,15 +1,15 @@
-const categorize = import('./categorize_controller').default;
-const finalize = import('./finalize_controller').default;
-const picture = import('./picture_controller').default;
-const next = import('./next_controller').default;
-const prev = import('./prev_controller').default;
+import categorize from './categorize_controller.js';
+import finalize from './finalize_controller.js';
+import picture from './picture_controller.js';
+import next from './next_controller.js';
+import prev from './prev_controller.js';
 
-console.log('teste');
-
-export default {
+const controllers =  {
   categorize: categorize,
   finalize: finalize,
   picture: picture,
   next: next,
   prev: prev
 };
+
+export default controllers;

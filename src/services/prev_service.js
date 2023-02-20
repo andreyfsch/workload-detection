@@ -1,7 +1,9 @@
-import { sysOperations, dateOperations } from "../utils";
+import utils from "../utils/index.js";
+const { sysOperations, dateOperations } = utils;
 const { getPictureNameFromUrl } = sysOperations;
 const { findPrevDate } = dateOperations;
-import { fileStructure } from "../config";
+import configs from "../configs/index.js";
+const { fileStructure } = configs;
 const { rawImages } = fileStructure;
 
 async function prevImage(imageURL) {
@@ -19,6 +21,4 @@ const performAction = async () => {
   }
 }
 
-export default {
-  performAction
-};
+export default performAction;

@@ -1,7 +1,16 @@
-import { pictureService } from '../services';
+import services from '../services/index.js';
+const { pictureService } = services;
 
-import { get } from './controller';
-
-const picture = get(req, res, next, pictureService);
+const picture = async (req, res, next) => {
+  const params = req.query;
+  try {
+      await pictureService.performAction(...params);
+      res.sendStatus(201);
+      next();
+  } catch (e) {
+      console.log(e.message);
+      res.sendStatus(500) && next(error);
+  }
+}
 
 export default picture;

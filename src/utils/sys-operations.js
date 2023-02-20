@@ -1,5 +1,6 @@
-const fs = require("fs");
-const { fileStructure } = require("../config");
+import fs from "fs";
+import configs from "../configs/index.js";
+const { fileStructure } = configs;
 const { rawImages, analyzeImages, doneImages,
   analyzeLabels, doneLabels } = fileStructure;
 
@@ -13,7 +14,7 @@ const filesInFolder = (folder) => {
   return listOfFiles;
 };
 
-export const listRawImagesNames = () => {
+const listRawImagesNames = () => {
   try {
     let listOfRawImages = filesInFolder(rawImages).forEach(
       i => i.replace(/\.[^/.]+$/, ""));
@@ -24,7 +25,7 @@ export const listRawImagesNames = () => {
   }
 };
 
-export const movePicAnalyze = (pictureName) => {
+const movePicAnalyze = (pictureName) => {
   let picture = pictureName + ".jpg";
   let oldPath = rawImages + picture;
   let newPath = analyzeImages + picture;
@@ -38,14 +39,14 @@ export const movePicAnalyze = (pictureName) => {
   });
 };
 
-export const createLabel = (pictureName) => {
+const createLabel = (pictureName) => {
   let labelName = pictureName + ".txt";
   let labelPath = analyzeLabels + labelName;
 
   fs.closeSync(fs.openSync(labelPath, 'w'));
 };
 
-export const moveFilesDone = (pictureName) => {
+const moveFilesDone = (pictureName) => {
   let picturePath = analyzeImages + pictureName + ".jpg";
   let labelPath = analyzeLabels + pictureName + ".txt";
   let newPicturePath = doneImages + pictureName + ".jpg";
@@ -62,7 +63,7 @@ export const moveFilesDone = (pictureName) => {
   });
 };
 
-export const writeFeatureLabel = (pictureName, newLine) => {
+const writeFeatureLabel = (pictureName, newLine) => {
   let labelPath = analyzeLabels + pictureName + ".txt";
 
   fs.appendFile(labelPath, newLine, function (err) {
@@ -71,10 +72,21 @@ export const writeFeatureLabel = (pictureName, newLine) => {
   });
 };
 
-export const getPictureNameFromUrl = (picturePath) => {
+const getPictureNameFromUrl = (picturePath) => {
   let pathNodes = picturePath.split("/");
   let pictureFile = pathNodes.pop();
   let pictureName = pictureFile.split(".").shift();
 
   return pictureName;
 };
+
+const sysOperations = {
+  listRawImagesNames: listRawImagesNames,
+  movePicAnalyze: movePicAnalyze,
+  createLabel: createLabel,
+  moveFilesDone: moveFilesDone,
+  writeFeatureLabel: writeFeatureLabel,
+  getPictureNameFromUrl: getPictureNameFromUrl
+};
+
+export default sysOperations;

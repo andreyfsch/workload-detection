@@ -1,4 +1,4 @@
-var features = [
+const features = [
   {
     id: 0,
     name: "Bandeja CNC"
@@ -9,4 +9,4 @@ var features = [
   }
 ];
 
-exports.features = features;
+export default features;

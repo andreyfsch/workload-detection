@@ -1,6 +1,8 @@
-import { featureSelection } from "../models";
+import models from "../models/index.js";
+const { featureSelection } = models;
 const { generateFeatureLine } = featureSelection;
-import { sysOperations } from "../utils";
+import utils from "../utils/index.js";
+const { sysOperations } = utils;
 const { writeFeatureLabel } = sysOperations;
 
 
@@ -19,6 +21,4 @@ const performAction = async (imageUrl, featureObj, featureType) => {
   }
 }
 
-export default {
-  performAction
-};
+export default performAction;

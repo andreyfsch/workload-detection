@@ -1,8 +1,11 @@
-import { featureSelection } from "../models";
+import models from "../models/index.js";
+const { featureSelection } = models;
 const { randRawPicture } = featureSelection;
-import { sysOperations } from "../utils";
+import utils from "../utils/index.js";
+const { sysOperations } = utils;
 const { movePicAnalyze, createLabel } = sysOperations;
-import { fileStructure } from "../config";
+import configs from "../configs/index.js";
+const { fileStructure } = configs;
 const { analyzeImages } = fileStructure;
 
 async function selectAndAnalyze() {
@@ -21,6 +24,4 @@ const performAction = async () => {
   }
 }
 
-export default {
-  performAction
-};
+export default performAction;

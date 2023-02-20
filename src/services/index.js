@@ -1,5 +1,15 @@
-export const categorizeService = require('./categorize_service').default;
-export const finalizeService = require('./finalize_service').default;
-export const pictureService = require('./picture_service').default;
-export const nextService = require('./next_service').default;
-export const prevService = require('./prev_service').default;
+import categorizeService from './categorize_service.js';
+import finalizeService from './finalize_service.js';
+import pictureService from './picture_service.js';
+import nextService from './next_service.js';
+import prevService from './prev_service.js';
+
+const services = {
+  categorizeService: categorizeService,
+  finalizeService: finalizeService,
+  pictureService: pictureService,
+  nextService: nextService,
+  prevService: prevService
+};
+
+export default services;

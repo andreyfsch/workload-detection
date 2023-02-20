@@ -1,4 +1,5 @@
-import { sysOperations } from "../utils";
+import utils from "../utils/index.js";
+const { sysOperations } = utils;
 const { getPictureNameFromUrl, moveFilesDone } = sysOperations;
 
 
@@ -19,6 +20,4 @@ const performAction = async () => {
   }
 }
 
-export default {
-  performAction
-};
+export default performAction;

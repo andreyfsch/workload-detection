@@ -18,7 +18,7 @@ const { raw, analyze, done } = stagesStructure;
 
 const [images, labels] = ["images/", "labels/"];
 
-var fileStructure = {
+const fileStructure = {
   analyzeImages: analyze + images,
   analyzeLabels: analyze + labels,
   doneImages: done + images,
@@ -26,4 +26,4 @@ var fileStructure = {
   rawImages: raw
 };
 
-exports.fileStructure = fileStructure;
+export default fileStructure;

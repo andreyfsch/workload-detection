@@ -1,8 +1,8 @@
-const sizeOfImg = require("image-size");
+import sizeOf from "image-size";
 
 const getImageSize = (imagePath) => {
   let imgSize = {};
-  sizeOfImg(imagePath, function (err, dimentions) {
+  sizeOf(imagePath, function (err, dimentions) {
     if (err) throw err;
     else imgSize = {
       width: dimentions.width,
@@ -13,7 +13,7 @@ const getImageSize = (imagePath) => {
   return imgSize;
 };
 
-export const convertFeatureProps = (imagePath, featureObj) => {
+const convertFeatureProps = (imagePath, featureObj) => {
   let { imageWidth, imageHeight } = getImageSize(imagePath);
   let { featureX, featureY,
     featureWidth, featureHeight } = featureObj;
@@ -38,3 +38,9 @@ export const convertFeatureProps = (imagePath, featureObj) => {
     width: normalizedFeatureWidth, height: normalizedFeatureHeight
   };
 };
+
+const imgOperations = {
+  convertFeatureProps: convertFeatureProps
+};
+
+export default imgOperations;

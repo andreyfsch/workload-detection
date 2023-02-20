@@ -1,10 +1,8 @@
 import { Router } from 'express';
 
-const controllers = import('../controllers/index.js').default;
+import controllers from '../controllers/index.js';
 
-// const { picture, categorize, finalize, prev, next } = controllers;
-
-console.log(controllers);
+const { picture, categorize, finalize, prev, next } = controllers;
 
 const router = Router();
 
