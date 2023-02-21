@@ -3,9 +3,9 @@ const { sysOperations, imgOperations } = utils;
 const { convertFeatureProps } = imgOperations;
 const { listRawImagesNames } = sysOperations
 
-const randRawPicture = () => {
+const randRawPicture = async () => {
   try {
-    let rawImagesNames = listRawImagesNames();
+    let rawImagesNames = await listRawImagesNames();
     let randomKey = Math.floor(Math.random() * rawImagesNames.length);
     let randomImage = rawImagesNames[randomKey];
 
@@ -18,7 +18,11 @@ const randRawPicture = () => {
 const generateFeatureLine = (imagePath, featureObj, featureType) => {
   let normalizedFeature = convertFeatureProps(imagePath, featureObj);
 
-  return `${featureType} ${normalizedFeature.x} ${normalizedFeature.y} ${normalizedFeature.width} ${normalizedFeature.height}`;
+  let line = `${featureType} ${normalizedFeature.x} ${normalizedFeature.y} ${normalizedFeature.width} ${normalizedFeature.height}`
+
+  // console.log(`generated line: ${line}`);
+
+  return line;
 };
 
 const featureSelection = {

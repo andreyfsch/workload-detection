@@ -1,15 +1,14 @@
 import services from '../services/index.js';
 const { pictureService } = services;
 
-const picture = async (req, res, next) => {
-  const params = req.query;
+const picture = async (_, res, next) => {
   try {
-      await pictureService.performAction(...params);
-      res.sendStatus(201);
+      let randImage = await pictureService.performAction();
+      res.status(200).send(JSON.stringify(randImage));
       next();
   } catch (e) {
       console.log(e.message);
-      res.sendStatus(500) && next(error);
+      res.sendStatus(500) && next(e);
   }
 }
 

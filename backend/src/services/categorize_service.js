@@ -3,22 +3,37 @@ const { featureSelection } = models;
 const { generateFeatureLine } = featureSelection;
 import utils from "../utils/index.js";
 const { sysOperations } = utils;
-const { writeFeatureLabel } = sysOperations;
+const { writeFeatureLabel, isAnalyzePicture, getPictureNameFromUrl } = sysOperations;
 
 
-async function insertFeature(imageUrl, featureObj, featureType) {
+async function insertFeature(imageURL, featureJson, featureType) {
   try {
-    let featureLine = generateFeatureLine(imageUrl, featureObj, featureType);
-    writeFeatureLabel(pictureName, featureLine);
-  } catch (e) { throw e; }
+    let imageName = getPictureNameFromUrl(imageURL);
+    let checkRawImage = await isAnalyzePicture(imageName);
+    let featureObj = JSON.parse(featureJson);
+
+    if (checkRawImage) {
+      let featureLine = generateFeatureLine(imageURL, featureObj, featureType);
+
+      writeFeatureLabel(imageName, featureLine);
+
+      return true;
+    } else return false;
+  }  catch (e) {
+    throw e;
+  }
 }
 
-const performAction = async (imageUrl, featureObj, featureType) => {
+const performAction = async (imageURL, featureJson, featureType) => {
   try {
-    return await insertFeature(imageUrl, featureObj, featureType);
+    return await insertFeature(imageURL, featureJson, featureType);
   } catch (e) {
     throw new Error(e.message);
   }
 }
 
-export default performAction;
+const categorizeService = {
+  performAction: performAction
+}
+
+export default categorizeService;

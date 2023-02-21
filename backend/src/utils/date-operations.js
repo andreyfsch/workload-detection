@@ -1,31 +1,32 @@
 const dateFormat = (date) => {
+  if (Math.abs(date) === 8640000000000000) return date;
   let parts = date.split("_");
   let day = parts[0];
   let time = parts[1];
 
-  explode_day = day.split("-");
+  let explode_day = day.split("-");
 
-  fixed_day = explode_day[2] + "-" + explode_day[1] + "-" + explode_day[1];
-  fixed_time = time.replace("-", ":");
+  let fixed_day = explode_day[2] + "-" + explode_day[1] + "-" + explode_day[0];
+  let fixed_time = time.replaceAll("-", ":");
 
-  fixed_date = fixed_day + "T" + fixed_time;
+  let  fixed_date = fixed_day + "T" + fixed_time;
 
   return fixed_date;
 };
 
 const findNextDate = (dates, target) => {
-  let nextDate = Infinity;
-  const dateTarget = new Date(dateFormat(target));
+  let nextDate = 8640000000000000;
+  let dateTarget = new Date(dateFormat(target));
 
   dates.filter(
-    d => new Date(dateFormat(d).getTime() >
-      dateTarget.getTime())
+    d => new Date(dateFormat(d)).getTime() >
+      dateTarget.getTime()
   ).forEach(function (d) {
     const date = new Date(dateFormat(d));
 
     if (
-      Math.abs(new Date(dateFormat(nextDate)) - dateTarget) >
-      Math.abs(date - dateTarget)
+      Math.abs(date - dateTarget) <
+      Math.abs(new Date(dateFormat(nextDate)) - dateTarget) 
     ) {
       nextDate = d;
     }
@@ -35,18 +36,18 @@ const findNextDate = (dates, target) => {
 };
 
 const findPrevDate = (dates, target) => {
-  let prevDate = Infinity;
-  const dateTarget = new Date(dateFormat(target));
+  let prevDate = -8640000000000000;
+  let dateTarget = new Date(dateFormat(target));
 
   dates.filter(
-    d => new Date(dateFormat(d).getTime() <
-      dateTarget.getTime())
+    d => new Date(dateFormat(d)).getTime() <
+    dateTarget.getTime()
   ).forEach(function (d) {
     const date = new Date(dateFormat(d));
 
     if (
-      Math.abs(dateTarget - new Date(dateFormat(prevDate))) >
-      Math.abs(dateTarget - date)
+      Math.abs(date - dateTarget) <
+      Math.abs(new Date(dateFormat(prevDate)) - dateTarget) 
     ) {
       prevDate = d;
     }

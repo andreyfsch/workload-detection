@@ -1,6 +1,6 @@
 import utils from "../utils/index.js";
 const { sysOperations, dateOperations } = utils;
-const { getPictureNameFromUrl } = sysOperations;
+const { getPictureNameFromUrl, listRawImagesNames, isRawPicture } = sysOperations;
 const { findNextDate } = dateOperations;
 import configs from "../configs/index.js";
 const { fileStructure } = configs;
@@ -8,12 +8,21 @@ const { rawImages } = fileStructure;
 
 async function nextImage(imageURL) {
   let imageName = getPictureNameFromUrl(imageURL);
-  let nextImage = findNextDate(imageName);
 
-  return rawImages + nextImage + ".jpg";
+  let checkRawImage = await isRawPicture(imageName);
+
+  if (checkRawImage) {
+
+    let rawPictureNames = await listRawImagesNames();
+
+    let nextImage = findNextDate(rawPictureNames, imageName);
+
+    return rawImages + nextImage + ".jpg";
+  
+  } else return false;
 }
 
-const performAction = async () => {
+const performAction = async (imageURL) => {
   try {
     return await nextImage(imageURL);
   } catch (e) {
@@ -21,4 +30,8 @@ const performAction = async () => {
   }
 }
 
-export default performAction;
+const nextService = {
+  performAction: performAction
+}
+
+export default nextService;

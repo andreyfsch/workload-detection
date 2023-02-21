@@ -7,12 +7,10 @@ import routes from './src/routes/index.js';
 app.use(json());
 app.use(urlencoded({ extended: true }));
 
-app.get('./src/', (req, res) => res.send('App is working'));
+app.get('/', (_, res) => res.send('App running'));
 
-app.use('./src/routes', routes);
+app.use('/api', routes);
 
 app.listen(3000, () => console.log('Feature selection API running on port 3000!'));
 
-export default {
-  app
-};
+export default app;

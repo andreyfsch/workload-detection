@@ -1,22 +1,22 @@
 import sizeOf from "image-size";
 
 const getImageSize = (imagePath) => {
-  let imgSize = {};
-  sizeOf(imagePath, function (err, dimentions) {
-    if (err) throw err;
-    else imgSize = {
-      width: dimentions.width,
-      height: dimentions.height
-    };
-  });
+  let {width, height} = sizeOf(imagePath);
 
-  return imgSize;
+  return {width, height};
 };
 
 const convertFeatureProps = (imagePath, featureObj) => {
-  let { imageWidth, imageHeight } = getImageSize(imagePath);
-  let { featureX, featureY,
-    featureWidth, featureHeight } = featureObj;
+  let { width:imageWidth, height:imageHeight } = getImageSize(imagePath);
+
+  let correctFeatureObjs;
+
+  for (const property in featureObj) {
+    correctFeatureObjs =  { ...correctFeatureObjs, [property]: parseInt(featureObj[property]) };
+  }
+
+  let { x:featureX, y:featureY,
+    width:featureWidth, height:featureHeight } = correctFeatureObjs;
 
   let centeredFeatureX = featureX + (featureWidth / 2);
   let ratioFeatureX = centeredFeatureX / imageWidth;

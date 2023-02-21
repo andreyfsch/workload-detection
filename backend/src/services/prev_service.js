@@ -1,6 +1,7 @@
 import utils from "../utils/index.js";
 const { sysOperations, dateOperations } = utils;
-const { getPictureNameFromUrl } = sysOperations;
+const { getPictureNameFromUrl,
+   listRawImagesNames, isRawPicture } = sysOperations;
 const { findPrevDate } = dateOperations;
 import configs from "../configs/index.js";
 const { fileStructure } = configs;
@@ -8,12 +9,21 @@ const { rawImages } = fileStructure;
 
 async function prevImage(imageURL) {
   let imageName = getPictureNameFromUrl(imageURL);
-  let prevImage = findPrevDate(imageName);
 
-  return rawImages + prevImage + ".jpg";
+  let checkRawImage = await isRawPicture(imageName);
+
+  if (checkRawImage) {
+
+    let rawPictureNames = await listRawImagesNames();
+
+    let prevImage = findPrevDate(rawPictureNames, imageName);
+
+    return rawImages + prevImage + ".jpg";
+  
+  } else return false;
 }
 
-const performAction = async () => {
+const performAction = async (imageURL) => {
   try {
     return await prevImage(imageURL);
   } catch (e) {
@@ -21,4 +31,8 @@ const performAction = async () => {
   }
 }
 
-export default performAction;
+const prevService = {
+  performAction: performAction
+}
+
+export default prevService;
