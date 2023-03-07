@@ -5,7 +5,7 @@
   "description": "REST API to provide image URLs and store agent provided features. The goal of the project is to label features in images for further deep learning network training.",
   "main": "app.js",
   "scripts": {
-    "test": "test-api"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "feature selection",
@@ -15,7 +15,7 @@
     "Express.js"
   ],
   "author": "Andrey Schoier",
-  "license": "Apache License 2.0",
+  "license": "Apache-2.0",
   "dependencies": {
     "express": "^4.18.2",
     "image-size": "^1.0.2"

@@ -1,0 +1,27 @@
+{
+  "name": "workload-detection-frontend",
+  "version": "1.0.0",
+  "description": "Interface for feature selection that will consume the backend API",
+  "main": "intex.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "scss",
+    "javascript"
+  ],
+  "author": "Andrey Schoier",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.0",
+    "parcel": "^2.0.0-beta.1",
+    "sass": "^1.26.10"
+    "svg-icon-sprite": ">=1.1.1",
+    "svgo": ">=2.8.0"
+  }
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "fractional": "^1.0.0",
+    "regenerator-runtime": "^0.13.7"
+  }
+}
