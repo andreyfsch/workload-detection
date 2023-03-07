@@ -1,2 +1,4 @@
 node_modules
 pictures
+.parcel-cache
+dist

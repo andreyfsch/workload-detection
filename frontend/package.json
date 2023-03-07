@@ -2,9 +2,14 @@
   "name": "workload-detection-frontend",
   "version": "1.0.0",
   "description": "Interface for feature selection that will consume the backend API",
-  "main": "intex.html",
+  "main": "src/js/workload-detection-front.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "generate:sprite": "svg-icon-sprite --folder=src/img/icons/svg --output=src/img/icons/icon-sheet.svg",
+    "optimize:svg": "svgo -f src/img/icons/svg -o src/img/icons/svg",
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "semistandard",
+    "fix": "semistandard --fix"
   },
   "keywords": [
     "scss",
@@ -13,12 +18,13 @@
   "author": "Andrey Schoier",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.8.0",
-    "parcel": "^2.0.0-beta.1",
-    "sass": "^1.26.10"
-    "svg-icon-sprite": ">=1.1.1",
-    "svgo": ">=2.8.0"
-  }
+    "@parcel/transformer-sass": "latest",
+    "parcel": "latest",
+    "sass": "latest",
+    "semistandard": "latest",
+    "svg-icon-sprite": "^1.1.1",
+    "svgo": "^2.8.0"
+  },
   "dependencies": {
     "core-js": "^3.6.5",
     "fractional": "^1.0.0",
