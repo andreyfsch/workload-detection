@@ -1,3 +1,5 @@
-//============
-// Header
-//============
+.header__options {
+  background-color: var(--color--primary--dark);
+  display: flex;
+  justify-content: space-around;
+}

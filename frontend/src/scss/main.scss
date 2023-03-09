@@ -31,9 +31,11 @@
 @forward "components/modal";
 @forward "components/progress";
 @forward "components/table";
+@forward "components/display-image";
 
 // PAGES
 @forward "pages/home";
+@forward "pages/feature-selection";
 
 // THEMES
 @forward "themes/dark";

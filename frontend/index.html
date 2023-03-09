@@ -1,33 +1,63 @@
 <!doctype html>
 <html lang="pt-br">
 
-<head>
-  <meta charset="utf-8">
-  <title>Victum | Detecção de features</title>
-  <meta name="description" content="Interface de detecção de features em imagens da Victum.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8">
+    <title>Victum | Detecção de features</title>
+    <meta name="description" content="Interface de detecção de features em
+      imagens da Victum.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta property="og:title" content="Victum | Detecção de features">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
+    <meta property="og:title" content="Victum | Detecção de features">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
 
-  <link rel="icon" type="image/x-icon" href="src/img/favicon.ico">
-  <link rel="apple-touch-icon" href="logovictum.png">
-  <!-- Place favicon.ico in the root directory -->
+    <link rel="icon" type="image/x-icon" href="src/img/icons/icon.ico">
+    <link rel="apple-touch-icon" href="src/img/icons/png/logovictum.png">
+    <!-- Place favicon.ico in the root directory -->
 
-  <link rel="stylesheet" href="src/scss/main.scss">
+    <link rel="stylesheet" href="src/scss/main.scss">
 
-  <meta name="theme-color" content="#fafafa">
-</head>
+    <meta name="theme-color" content="#fafafa">
+  </head>
 
-<body>
+  <body>
 
-  <h1>Aqui vai ser a página</h1>
+    <main class="main__frame">
 
-  <p>Vamos lá, não vai ser tão difícil</p>
+      <header class="header__options">
+        <select class="sel__feature-type">
+          <option selected class="opt__feature-type">
+            Selecione o tipo de feature
+          </option>
+        </select>
 
-  <script type="module" src="src/js/workload-detection-front.js"></script>
-</body>
+        <input type="button" value="Confirmar feature" class="btn__feature" />
+        <input type="button" value="Finalizar imagem" class="btn__finalize" />
+      </header>
+
+      <section class="section__crop">
+        <img class="img__feature-sel"
+          src="../pictures/raw/06-02-2023_07-10-08.jpg"
+          alt="Imagem para seleção de features" />
+      </section>
+
+      <footer class="footer-victum">
+        <img class="footer-victum__logo" src="src/img/icons/svg/logovictum.svg"
+          alt="Logo victum">
+        <section class="footer-victum__description">
+          <p class="footer-victum__text">
+            blablabla
+          </p>
+        </section>
+      </footer>
+
+    </main>
+
+    <script
+      type="module"
+      src="src/js/workload-detection-front.js"></script>
+  </body>
 
 </html>

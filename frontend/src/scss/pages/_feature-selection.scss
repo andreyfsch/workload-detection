@@ -1,0 +1,22 @@
+.main__frame {
+  display: grid;
+  position: absolute;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr) 10vw;
+  grid-template-rows: 5vh 85vh 10vh;
+  grid-template-areas: "header header header info"
+                       "image image image info"
+                       "footer footer footer footer";
+}
+
+.header__options {
+  grid-area: header;
+}
+
+.section__crop {
+  grid-area: image;
+}
+
+.footer-victum {
+  grid-area: footer;
+}
