@@ -1,3 +1,75 @@
-//============
-// Buttons
-//============
+@use "../abstracts/mixins" as mixin;
+
+.img__arrow {
+  height: 100%;
+  width: 100%;
+
+  box-shadow: var(--shadow--dark);
+  border-radius: 5px;
+
+  &__link {
+    width: 5rem;
+    height: 8.6rem;
+    text-decoration: none;
+  }
+
+  transition: all 0.2s cubic-bezier(.15,-0.42,.62,1.02);
+  &:hover {
+    transform: translate(-1px, -2px);
+  }
+
+  &:active {
+    transform: translate(1px, 2px);
+  }
+}
+
+.btn__header {
+  @include mixin.flex-center;
+  justify-content: space-evenly;
+  width: 10rem;
+  height: 2rem;
+  background-color: var(--color--gray-gradient);
+  border-radius: 5px;
+
+
+  cursor: pointer;
+
+  position: relative;
+	&::before{
+		transition: all 0.7s cubic-bezier(.15,-0.42,.62,1.02);
+		content: '';
+		width: 55%;
+		height: 100%;
+		background: var(--color--secondary);
+		position: absolute;
+		top: 0;
+		left: 0;
+    border-radius: 5px;
+    z-index: 1;
+	}
+
+  &--text {
+    width: 70%;
+  }
+
+  &:hover{
+    &::before {
+      background: var(--color--secondary);
+      width: 100%;
+    }
+  }
+
+  &:active {
+    transform: translateY(1px);
+    &::before {
+      transform: translateY(1px);
+    }
+  }
+
+}
+
+.btn__icon {
+  width: 2rem;
+  height:2rem;
+  z-index: 2;
+}

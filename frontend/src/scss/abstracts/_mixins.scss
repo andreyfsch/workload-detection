@@ -43,6 +43,8 @@
   text-overflow: ellipsis;
 }
 
+
+
 //Breakpoints
 //Ex: @include breakpoint(large) {... rules}
 $small: 600px;
@@ -180,4 +182,12 @@ $drawer: 80;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+@mixin clearfix {
+  &::after {
+      content: "";
+      display: table;
+      clear: both;
+  }
 }

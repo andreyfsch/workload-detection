@@ -5,7 +5,7 @@ const { getPictureNameFromUrl,
 const { findPrevDate } = dateOperations;
 import configs from "../configs/index.js";
 const { fileStructure } = configs;
-const { rawImages } = fileStructure;
+const { rawFrontend } = fileStructure;
 
 async function prevImage(imageURL) {
   let imageName = getPictureNameFromUrl(imageURL);
@@ -18,7 +18,7 @@ async function prevImage(imageURL) {
 
     let prevImage = findPrevDate(rawPictureNames, imageName);
 
-    return rawImages + prevImage + ".jpg";
+    return rawFrontend + prevImage + ".jpg";
   
   } else return false;
 }

@@ -4,7 +4,7 @@ const { movePicRaw, getPictureNameFromUrl,
    destroyLabel, isRawPicture } = sysOperations;
 import configs from "../configs/index.js";
 const { fileStructure } = configs;
-const { rawImages } = fileStructure;
+const { rawFrontend } = fileStructure;
 
 async function resetPicture(imageURL) {
   try {
@@ -19,7 +19,7 @@ async function resetPicture(imageURL) {
 
       destroyLabel(imageURL);
 
-      return rawImages + pictureName + ".jpg";
+      return rawFrontend + pictureName + ".jpg";
     
     } else return false;
   } catch (e) {

@@ -1,0 +1,18 @@
+@use "../abstracts/mixins" as mixin;
+.workload-detection{
+  &__aside {
+    background-color: var(--color--primary--dark);
+    @include mixin.flex-center;
+  }
+}
+
+.aside{
+  &__instructions {
+    // background-color: var(--color--bege--light);
+    // border-radius: 3px;
+    padding: 5px;
+    margin: 3px;
+
+    // box-shadow: var(--shadow--mid);
+  }
+}

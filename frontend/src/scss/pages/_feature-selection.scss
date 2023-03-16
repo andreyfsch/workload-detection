@@ -1,22 +1,56 @@
-.main__frame {
-  display: grid;
-  position: absolute;
-  width: 100%;
-  grid-template-columns: repeat(3, 1fr) 10vw;
-  grid-template-rows: 5vh 85vh 10vh;
-  grid-template-areas: "header header header info"
-                       "image image image info"
-                       "footer footer footer footer";
-}
+@use "../abstracts/mixins" as mixin;
+.workload-detection{
 
-.header__options {
-  grid-area: header;
-}
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    @include mixin.flex-center;
+    background-image: linear-gradient(to right bottom, var(--gray-gradient));
+    @include mixin.background-cover;
+  }
 
-.section__crop {
-  grid-area: image;
-}
+  &__main {
+    display: grid;   
+    grid-template-columns: repeat(3, 1fr) 10%;
+    grid-template-rows: 5% 85% 10%;
+    grid-template-areas: "header header header info"
+                        "image image image info"
+                        "footer footer footer footer";
+    position: absolute;
+    width: 95%;
+    height: 90%;
+    max-width: 100rem;
+    max-height: 55rem;
+    border-radius: 1rem;
+    overflow: hidden;
 
-.footer-victum {
-  grid-area: footer;
+    @media only screen and (width < 75em) {
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+    }
+
+    box-shadow: var(--shadow--dark);
+
+  }
+
+  &__header {
+    grid-area: header;
+  }
+
+  &__section {
+
+    &--crop {
+      grid-area: image;
+    }
+  }
+
+  &__footer-victum {
+    grid-area: footer;
+  }
+
+  &__aside {
+    grid-area: info;
+  }
 }

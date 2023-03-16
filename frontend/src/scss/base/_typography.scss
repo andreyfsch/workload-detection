@@ -1,3 +1,32 @@
 //============
 // Typography
 //============
+.workload-detection{
+
+  &__header {
+    font-size: var(--text--3);
+  }
+
+  &__aside {
+    font-size: var(--text--3);
+    color: white;
+    font-family: var(--family--sans);
+    font-weight: var(--weight--4);
+  }
+
+  &__footer-victum {
+    font-size: var(--text--5);
+    font-weight: var(--weight--5);
+    color: white;
+    font-family: var(--family--serif);
+  }
+}
+.btn__header--text {
+  font-size: var(--text--1);
+  line-height: 13px;
+  font-family: var(--family--sans);
+  font-weight: var(--weight--4);
+  color: var(--color--background--light);
+  mix-blend-mode: difference;
+  z-index: 2;
+}

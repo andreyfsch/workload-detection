@@ -4,7 +4,7 @@ const { getPictureNameFromUrl, moveFilesDone,
    isAnalyzePicture } = sysOperations;
 import configs from "../configs/index.js";
 const { fileStructure } = configs;
-const { doneImages } = fileStructure;
+const { doneImagesFrontend } = fileStructure;
 
 async function finalize(imageURL) {
   try {
@@ -17,7 +17,7 @@ async function finalize(imageURL) {
       let success = await moveFilesDone(imageName);
 
       if (success) {
-        return doneImages + imageName + ".jpg";
+        return doneImagesFrontend + imageName + ".jpg";
       } else {
         return false;
       }

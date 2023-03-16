@@ -3,8 +3,12 @@ import pkg from 'body-parser';
 const { json, urlencoded } = pkg;
 const app = express();
 import routes from './src/routes/index.js';
+import cors from 'cors';
 
 app.use(json());
+app.use(cors({ origin: '*'}));
+app.use(express.static('../pictures'));
+
 app.use(urlencoded({ extended: true }));
 
 app.get('/', (_, res) => res.send('App running'));

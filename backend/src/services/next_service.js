@@ -4,7 +4,7 @@ const { getPictureNameFromUrl, listRawImagesNames, isRawPicture } = sysOperation
 const { findNextDate } = dateOperations;
 import configs from "../configs/index.js";
 const { fileStructure } = configs;
-const { rawImages } = fileStructure;
+const { rawFrontend } = fileStructure;
 
 async function nextImage(imageURL) {
   let imageName = getPictureNameFromUrl(imageURL);
@@ -17,7 +17,7 @@ async function nextImage(imageURL) {
 
     let nextImage = findNextDate(rawPictureNames, imageName);
 
-    return rawImages + nextImage + ".jpg";
+    return rawFrontend + nextImage + ".jpg";
   
   } else return false;
 }

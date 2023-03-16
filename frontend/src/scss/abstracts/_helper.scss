@@ -10,6 +10,22 @@
     --color--#{$label}--light: #{map-get($value, light)};
   }
 
+  $gradient: '';
+
+  @each $label,
+  $value in map-get(helper.$colors, gray-gradient) {
+      $comma: if($label==light, '', ',');
+      $gradient: #{$gradient}+#{$value}+#{$comma};
+  }
+
+  --gray-gradient: #{$gradient};
+
+  /*shadows*/
+  @each $label,
+  $value in helper.$shadows {
+      --shadow--#{$label}: #{map-get($value, offset-x)} #{map-get($value, offset-y)} #{map-get($value, blur-radius)} #{map-get($value, color)};
+  }
+
   /*spacing*/
   @each $label, $value in helper.$spacing {
     --space--#{$label}: #{map-get($value, absolute)};

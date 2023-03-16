@@ -3,12 +3,12 @@ const { featureSelection } = models;
 const { randRawPicture } = featureSelection;
 import configs from "../configs/index.js";
 const { fileStructure } = configs;
-const { rawImages } = fileStructure;
+const { rawFrontend } = fileStructure;
 
 async function selectRandPic() {
   let pictureName = await randRawPicture();
   
-  return rawImages + pictureName + ".jpg";
+  return rawFrontend + pictureName + ".jpg";
 }
 
 const performAction = async () => {

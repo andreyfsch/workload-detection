@@ -1,3 +1,28 @@
+@use "../abstracts/mixins" as mixin;
 //============
 // Global styles
 //============
+.workload-detection__body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.workload-detection__body *,
+.workload-detection__body *::before,
+.workload-detection__body *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+.workload-detection__body * {
+  box-sizing: border-box;
+  font-size: 62.5%; // 1rem = 10px, 10px/16px = 62.5%
+
+  @media only screen and (width < 75em) {
+      font-size: 50%;
+  }
+}

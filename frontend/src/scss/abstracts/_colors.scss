@@ -2,16 +2,18 @@
 // Colors
 //============
 
-$primary: #27436d;
-$secondary: #00142D;
+$primary: #f13339;
+$secondary: #201f29;
 $accent: #e76f51;
 $heading: #212121;
 $text: #2c3e50;
-$background: #e9e9e9;
+$background: #7f8085;
 $success: #00e676;
 $warning: #ffea00;
 $danger: #ff3d00;
 $info: #00b0ff;
+$gray: #dbdcdf;
+$bege: #dad394;
 $darken: 25;
 $lighten: 15;
 
@@ -66,4 +68,14 @@ $colors: (
     dark: darken($info, $darken),
     light: lighten($info, $lighten),
   ),
+  gray-gradient: (
+    dark: darken($gray, 5%),
+    base: $gray,
+    light: lighten($gray, $lighten),
+  ),
+  bege: (
+    base: $bege,
+    dark: darken($bege, $darken),
+    light: lighten($bege, $lighten),
+  )
 );

@@ -4,7 +4,7 @@ const { movePicAnalyze, createLabel,
    isRawPicture, getPictureNameFromUrl } = sysOperations;
 import configs from "../configs/index.js";
 const { fileStructure } = configs;
-const { analyzeImages } = fileStructure;
+const { analyzeImagesFrontend } = fileStructure;
 
 async function analyzePicture(imageURL) {
   try {
@@ -18,7 +18,7 @@ async function analyzePicture(imageURL) {
 
       createLabel(pictureName);
 
-      return analyzeImages + pictureName + ".jpg";
+      return analyzeImagesFrontend + pictureName + ".jpg";
     
     } else return false;
   } catch(e){

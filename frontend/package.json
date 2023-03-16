@@ -4,7 +4,7 @@
   "description": "Interface for feature selection that will consume the backend API",
   "main": "src/js/workload-detection-front.js",
   "scripts": {
-    "generate:sprite": "svg-icon-sprite --folder=src/img/icons/svg --output=src/img/icons/icon-sheet.svg",
+    "generate:sprite": "svg-icon-generate --folder=src/img/icons/svg --output=src/img/icons/icon-sheet.svg",
     "optimize:svg": "svgo -f src/img/icons/svg -o src/img/icons/svg",
     "start": "parcel index.html",
     "build": "parcel build index.html",

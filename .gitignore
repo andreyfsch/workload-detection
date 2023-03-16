@@ -3,3 +3,4 @@ pictures
 .parcel-cache
 dist
 .vscode
+.zshenv

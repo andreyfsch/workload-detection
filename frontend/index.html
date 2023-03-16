@@ -4,8 +4,8 @@
   <head>
     <meta charset="utf-8">
     <title>Victum | Detecção de features</title>
-    <meta name="description" content="Interface de detecção de features em
-      imagens da Victum.">
+    <meta name="description" content="Interface de seleção de features em
+      imagens industriais da Victum.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta property="og:title" content="Victum | Detecção de features">
@@ -22,39 +22,82 @@
     <meta name="theme-color" content="#fafafa">
   </head>
 
-  <body>
+  <body class="workload-detection__body">
 
-    <main class="main__frame">
+    <div class="workload-detection__wrapper">
 
-      <header class="header__options">
-        <select class="sel__feature-type">
-          <option selected class="opt__feature-type">
-            Selecione o tipo de feature
-          </option>
-        </select>
+      <main class="workload-detection__main">
 
-        <input type="button" value="Confirmar feature" class="btn__feature" />
-        <input type="button" value="Finalizar imagem" class="btn__finalize" />
-      </header>
+        <header class="workload-detection__header">
+          <select class="sel__feature-type">
+            <option selected class="opt__feature-type">
+              Selecione o tipo de feature
+            </option>
+          </select>
 
-      <section class="section__crop">
-        <img class="img__feature-sel"
-          src="../pictures/raw/06-02-2023_07-10-08.jpg"
-          alt="Imagem para seleção de features" />
-      </section>
+          <button class="btn__header btn__header--slide"><svg class="btn__icon
+              btn__icon--feature">
+              <use xlink:href="src/img/icons/icon-sheet.svg#slide-icon"></use>
+            </svg><span class="btn__header--text">Prévia das imagens</span></button>
+          <button class="btn__header btn__header--feature"><svg class="btn__icon
+              btn__icon--feature">
+              <use xlink:href="src/img/icons/icon-sheet.svg#crop-icon"></use>
+            </svg><span class="btn__header--text">Confirmar feature</span></button>
+          <button class="btn__header btn__header--finalize"><svg
+              class="btn__icon
+              btn__icon--finalize">
+              <use xlink:href="src/img/icons/icon-sheet.svg#check-icon"></use>
+            </svg><span class="btn__header--text">Finalizar imagem</span></button>
+        </header>
 
-      <footer class="footer-victum">
-        <img class="footer-victum__logo" src="src/img/icons/svg/logovictum.svg"
-          alt="Logo victum">
-        <section class="footer-victum__description">
-          <p class="footer-victum__text">
-            blablabla
-          </p>
+        <section class="workload-detection__section
+          workload-detection__section--crop">
+
+          <a class="img__arrow__link img__arrow__link--left" role="button"
+            href="#">
+            <svg class="img__arrow img__arrow--left">
+              <use xlink:href="src/img/icons/icon-sheet.svg#arrow-left"></use>
+            </svg>
+          </a>
+
+          <svg
+            data-tooltip="Clique aqui para carregar uma imagem"
+            class="img__feature-sel img__feature-sel--preload">
+            <use xlink:href="src/img/icons/icon-sheet.svg#cnc"></use>
+          </svg>
+
+          <a class="img__arrow__link img__arrow__link--right" role="button"
+            href="#"><svg
+              class="img__arrow">
+              <use xlink:href="src/img/icons/icon-sheet.svg#arrow"></use>
+            </svg></a>
         </section>
-      </footer>
 
-    </main>
+        <aside class="workload-detection__aside">
+          <p class="aside__instructions">Lorem ipsum dolor sit, amet consectetur
+            adipisicing elit. Voluptate, dolorem ad? Cupiditate illum hic
+            numquam
+            debitis non atque officia labore repellendus, ullam, distinctio
+            pariatur nam aperiam sit incidunt voluptatem! Recusandae.</p>
+        </aside>
 
+        <footer class="workload-detection__footer-victum">
+          <img class="footer-victum__logo"
+            src="src/img/icons/svg/logovictum.svg"
+            alt="Logo victum">
+          <section class="footer-victum__description">
+            <p class="footer-victum__text">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti
+              quam aperiam cum eveniet quo, optio culpa aliquam ipsum quia
+              aliquid
+              dolor, recusandae sed et quasi odio enim ipsa! Quisquam, non!
+            </p>
+          </section>
+        </footer>
+
+      </main>
+
+    </div>
     <script
       type="module"
       src="src/js/workload-detection-front.js"></script>

@@ -1,5 +1,9 @@
-.header__options {
-  background-color: var(--color--primary--dark);
-  display: flex;
-  justify-content: space-around;
+@use "../abstracts/mixins" as mixin;
+
+.workload-detection {
+  &__header {
+    background-color: var(--color--background--dark);
+    @include mixin.flex-center;
+    justify-content: space-around;
+  }
 }
