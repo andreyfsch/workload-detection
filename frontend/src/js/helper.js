@@ -2,6 +2,10 @@ import 'regenerator-runtime/runtime';
 import configs from './configs/index.js';
 const { TIMEOUT_SEC } = configs;
 
+const sleep = function sleep (ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+};
+
 const timeout = function (s) {
   return new Promise(function (_resolve, reject) {
     setTimeout(function () {
@@ -11,10 +15,8 @@ const timeout = function (s) {
   });
 };
 
-const AJAX = async function (url, method, params=false) {
-
-
-  let searchParams = new URLSearchParams();
+const AJAX = async function (url, method, params = false) {
+  const searchParams = new URLSearchParams();
 
   if (params) {
     for (const param in params) {
@@ -22,10 +24,12 @@ const AJAX = async function (url, method, params=false) {
     }
   }
 
-  const fetchPro = params ? fetch(url, {
+  const fetchPro = params
+    ? fetch(url, {
       method: method,
       body: searchParams
-    }) : fetch(url, {method: method});
+    })
+    : fetch(url, { method: method });
 
   const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
 
@@ -33,14 +37,13 @@ const AJAX = async function (url, method, params=false) {
 
   if (responseObj.data) {
     const data = responseObj.data;
-  
+
     if (!res.ok) throw new Error(`${data.message} (${res.status})`);
-  
+
     return data;
   } else {
     return responseObj;
   }
-
 };
 
-export default AJAX;
+export default { AJAX, sleep };

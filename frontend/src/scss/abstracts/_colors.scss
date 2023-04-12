@@ -8,11 +8,12 @@ $accent: #e76f51;
 $heading: #212121;
 $text: #2c3e50;
 $background: #7f8085;
-$success: #00e676;
-$warning: #ffea00;
+$success: rgb(38, 150, 103);
+$warning: rgb(212, 210, 69);
 $danger: #ff3d00;
+$error: rgb(204, 44, 44);
 $info: #00b0ff;
-$gray: #dbdcdf;
+$gray: rgb(102, 102, 102);
 $bege: #dad394;
 $darken: 25;
 $lighten: 15;
@@ -57,6 +58,11 @@ $colors: (
     base: $warning,
     dark: darken($warning, $darken),
     light: lighten($warning, $lighten),
+  ),
+  error: (
+    base: $error,
+    dark: darken($error, $darken),
+    light: lighten($error, $lighten)
   ),
   danger: (
     base: $danger,

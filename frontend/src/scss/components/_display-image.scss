@@ -1,8 +1,9 @@
 @use "../abstracts/mixins" as mixin;
 
-.img__feature-sel {
-  height: 42rem;
-  width: 46rem;
+.img__feature-sel, .croppr-container {
+  @include mixin.flex-center;
+  height: 75vh;
+  width: 40vw;
   border-radius: 5px;
   border: 2px solid black;
   box-shadow: var(--shadow--light);
@@ -12,7 +13,7 @@
     @include mixin.flex-center;
     @include mixin.background-cover;
     background-image: url('../img/icons/svg/loader.svg');
-    background-color: var(--color--secondary--light);
+    background-color: var(--color--background--light);
     opacity: 0.5;
   }
 

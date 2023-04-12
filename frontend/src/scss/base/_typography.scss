@@ -30,3 +30,18 @@
   mix-blend-mode: difference;
   z-index: 2;
 }
+
+.span__text-message-toast {
+  font-size: 20px;
+  font-weight: 600;
+
+  &--title {
+      color: var(--color--secondary--light);
+  }
+}
+
+.span__text-submessage-toast {
+  color: rgb(102, 102, 102);
+  font-weight: 400;
+  font-size: 16px;
+}
